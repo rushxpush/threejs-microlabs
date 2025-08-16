@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "@types/three": "^0.179.0",
+    "onchange": "^7.1.0",
+    "three": "^0.179.1"
+  },
+  "devDependencies": {
+    "prettier": "3.6.2",
+    "vite": "^7.1.2"
+  },
+  "scripts": {
+    "dev": "vite",
+    "prettier-watch": "onchange \"**/*\" -- prettier --write --ignore-unknown {{changed}}"
+  }
+}
