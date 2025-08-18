@@ -1,11 +1,11 @@
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 
 import { scene, camera, renderer, canvas } from "./init";
-import { texture, texturePaths } from "./texture.ts";
-// import { cube } from "./cube.ts";
-import Cube from "./cube copy.ts";
+import { wallMaterial, flowerMaterials } from "./texture.ts";
+import Cube from "./cube.ts";
 
-const cube = new Cube(texture(texturePaths.wall));
+// const cube = new Cube(wallMaterial);
+const cube = new Cube(flowerMaterials);
 console.log(cube);
 
 scene.add(cube.mesh);
@@ -24,5 +24,4 @@ renderer.setAnimationLoop(animate);
 function rotateCube() {
   cube.mesh.rotation.x += 0.01;
   cube.mesh.rotation.y += 0.01;
-  // cube.rotation.z += 0.01;
 }

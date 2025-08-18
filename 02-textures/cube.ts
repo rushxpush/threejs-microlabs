@@ -1,14 +1,23 @@
 import * as THREE from "three";
 
-// Texture Loader
-const loader: THREE.TextureLoader = new THREE.TextureLoader();
-const texture: THREE.Texture = loader.load("texture/wall.jpg");
-texture.colorSpace = THREE.SRGBColorSpace;
+class Cube {
+  geometry: THREE.BoxGeometry;
+  materials: THREE.MeshBasicMaterial | THREE.MeshBasicMaterial[];
+  cube: THREE.Mesh<
+    THREE.BoxGeometry,
+    THREE.MeshBasicMaterial | THREE.MeshBasicMaterial[],
+    THREE.Object3DEventMap
+  >;
 
-const geometry = new THREE.BoxGeometry(1, 1, 1);
-const material = new THREE.MeshBasicMaterial({
-  map: texture,
-});
-const cube = new THREE.Mesh(geometry, material);
+  constructor(materials: THREE.MeshBasicMaterial | THREE.MeshBasicMaterial[]) {
+    this.geometry = new THREE.BoxGeometry(1, 1, 1);
+    this.materials = materials;
+    this.cube = new THREE.Mesh(this.geometry, this.materials);
+  }
 
-export { cube };
+  get mesh() {
+    return this.cube;
+  }
+}
+
+export default Cube;
